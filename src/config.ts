@@ -7,38 +7,58 @@ import type {
 } from "./types/config";
 import { LinkPreset } from "./types/config";
 
+/**
+ * 网站基本设置
+ */
 export const siteConfig: SiteConfig = {
 	title: "我的个人博客",
-subtitle: "分享生活 · 技术 · 资源",
-lang: "zh_CN", // Language code, e.g. 'en', 'zh_CN', 'ja', etc.
+	subtitle: "分享生活 · 技术 · 资源",
+	lang: "zh_CN",
+
+	/**
+	 * 主题颜色
+	 * 200 = 青蓝色
+	 */
 	themeColor: {
-		hue: 250, // Default hue for the theme color, from 0 to 360. e.g. red: 0, teal: 200, cyan: 250, pink: 345
-		fixed: false, // Hide the theme color picker for visitors
+		hue: 200,
+		fixed: false,
 	},
+
+	/**
+	 * 首页 Banner
+	 * 暂时关闭，后面可以换成自己的图片
+	 */
 	banner: {
 		enable: false,
-		src: "assets/images/demo-banner.png", // Relative to the /src directory. Relative to the /public directory if it starts with '/'
-		position: "center", // Equivalent to object-position, only supports 'top', 'center', 'bottom'. 'center' by default
+		src: "assets/images/demo-banner.png",
+		position: "center",
+
 		credit: {
-			enable: false, // Display the credit text of the banner image
-			text: "", // Credit text to be displayed
-			url: "", // (Optional) URL link to the original artwork or artist's page
+			enable: false,
+			text: "",
+			url: "",
 		},
 	},
+
+	/**
+	 * 文章目录
+	 */
 	toc: {
-		enable: true, // Display the table of contents on the right side of the post
-		depth: 2, // Maximum heading depth to show in the table, from 1 to 3
+		enable: true,
+		depth: 2,
 	},
-	favicon: [
-		// Leave this array empty to use the default favicon
-		// {
-		//   src: '/favicon/icon.png',    // Path of the favicon, relative to the /public directory
-		//   theme: 'light',              // (Optional) Either 'light' or 'dark', set only if you have different favicons for light and dark mode
-		//   sizes: '32x32',              // (Optional) Size of the favicon, set only if you have favicons of different sizes
-		// }
-	],
+
+	/**
+	 * 网站图标
+	 * 后面可以换成你自己的头像 / Logo
+	 */
+	favicon: [],
 };
 
+
+/**
+ * 顶部导航
+ */
 export const navBarConfig: NavBarConfig = {
 	links: [
 		LinkPreset.Home,
@@ -46,45 +66,45 @@ export const navBarConfig: NavBarConfig = {
 		LinkPreset.About,
 		{
 			name: "GitHub",
-			url: "https://github.com/saicaca/fuwari", // Internal links should not include the base path, as it is automatically added
-			external: true, // Show an external link icon and will open in a new tab
+			url: "https://github.com/2747025402/my-fuwari-blog",
+			external: true,
 		},
 	],
 };
 
+
+/**
+ * 左侧个人资料
+ */
 export const profileConfig: ProfileConfig = {
-	avatar: "assets/images/demo-avatar.png", // Relative to the /src directory. Relative to the /public directory if it starts with '/'
-	name: "我的名字",
-bio: "记录生活，分享技术，收藏美好。",
-	links: [
-		{
-			name: "Twitter",
-			icon: "fa6-brands:twitter", // Visit https://icones.js.org/ for icon codes
-			// You will need to install the corresponding icon set if it's not already included
-			// `pnpm add @iconify-json/<icon-set-name>`
-			url: "https://twitter.com",
-		},
-		{
-			name: "Steam",
-			icon: "fa6-brands:steam",
-			url: "https://store.steampowered.com",
-		},
-		{
-			name: "GitHub",
-			icon: "fa6-brands:github",
-			url: "https://github.com/saicaca/fuwari",
-		},
-	],
+	avatar: "assets/images/demo-avatar.png",
+
+	name: "我的个人博客",
+
+	bio: "记录生活，分享技术，收藏美好。",
+
+	/**
+	 * 社交链接
+	 * 暂时关闭 Twitter / Steam 等默认链接
+	 */
+	links: [],
 };
 
+
+/**
+ * 文章版权许可
+ * 暂时关闭，避免首页显示默认 CC BY-NC-SA 信息
+ */
 export const licenseConfig: LicenseConfig = {
-	enable: true,
+	enable: false,
 	name: "CC BY-NC-SA 4.0",
 	url: "https://creativecommons.org/licenses/by-nc-sa/4.0/",
 };
 
+
+/**
+ * 代码块样式
+ */
 export const expressiveCodeConfig: ExpressiveCodeConfig = {
-	// Note: Some styles (such as background color) are being overridden, see the astro.config.mjs file.
-	// Please select a dark theme, as this blog theme currently only supports dark background color
 	theme: "github-dark",
 };
